@@ -1,0 +1,172 @@
+﻿@model schoolwebsite.Models.Teachers
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<hr />
+
+<style>
+
+    .login-container {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .login-form-2 {
+        padding: 5%;
+        background: #1fa692;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+
+        .login-form-2 h3 {
+            text-align: center;
+            color: #fff;
+        }
+
+    .login-container form {
+        padding: 10%;
+    }
+
+    .btnSubmit {
+        width: 50%;
+        border-radius: 1rem;
+        padding: 1.5%;
+        border: none;
+        cursor: pointer;
+    }
+
+
+
+    .login-form-2 .ForgetPwd {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+    }
+</style>
+
+
+
+
+<div class="col-md-5 login-form-2" id="part-2" style=" margin-left: 30%;">
+    <h3 style="margin-bottom:20px;">Teachers Registration Form</h3>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <input asp-for="Name" class="form-control" placeholder="Name" value="" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="Email" class="form-control" placeholder="Email Address" value="" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="ContactNum" class="form-control" placeholder="Contact Number" value="" id="contacts"/>
+            <span asp-validation-for="ContactNum" class="text-danger"></span>
+            <p id="message2"></p>
+        </div>
+        <div class="form-group">
+            <input asp-for="Address" class="form-control" placeholder="Address" value="" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="Username" class="form-control" placeholder="User Name" value="" id="name" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+            <p id="message"></p>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="password" class="form-control" placeholder="Your Password *" value="" />
+            <span asp-validation-for="password" class="text-danger"></span>
+        </div>
+        <div class="form-group" style="margin-top:30px;">
+            <input type="submit" class="btn btn-secondary btn-block" value="Register" id="submit"/>
+        </div>
+
+    </form>
+</div>
+
+
+<div>
+    <a class="btn btn-info" asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+    
+
+
+
+
+@section Scripts {
+
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#name').keydown(function () {
+            $('#message').html("Checking....");
+            $('#message').css("color", "blue");
+        });
+
+        $('#name').focusout(function () {
+
+            $.post("@Url.Action("Namecheck","Teachers")",
+            {
+                userdata: $("#name").val()
+            },
+            function (data) {
+                if (data == 0) {
+                    $('#message').html("Available ");
+                    $('#message').css("color", "green");
+                    $("#submit").attr("disabled", false);
+
+                }
+                else {
+                    $('#message').html("Not Available ");
+                    $('#message').css("color", "red");
+                    $("#submit").attr("disabled", true);
+                }
+            });
+
+        });
+        $('#contacts').keydown(function () {
+            $('#message2').html("Checking....");
+            $('#message2').css("color", "blue");
+
+            var contactstring = $("#contacts").val();
+
+            function isNumber(str) {
+                if (typeof str != "string") return false // we only process strings!
+                // could also coerce to string: str = ""+str
+                return !isNaN(str) && !isNaN(parseFloat(str))
+            }
+            var contact = isNumber(contactstring);
+
+            console.log(contact);
+            if (contact ) {
+
+                $('#message2').html("Okay!");
+                $('#message2').css("color", "green");
+
+            }
+           else {
+
+
+                $('#message2').html("Number is not correct");
+                $('#message2').css("color", "red");
+                $("#submit").attr("disabled", true);
+            }
+
+        });
+
+
+    });
+    </script>
+
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

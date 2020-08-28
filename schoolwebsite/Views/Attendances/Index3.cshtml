@@ -1,0 +1,494 @@
+﻿@model IEnumerable<schoolwebsite.Models.Attendance>
+
+@{
+
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    
+    .tableformat{
+        margin-left:25%;
+        padding-left:50px;
+        padding-right:50px;
+        
+    }
+    .tableformat2{
+       
+        margin-left:-20px;
+        padding-left:50px;
+        padding-right:50px;
+        
+    }
+
+    .rounded-circle{
+        margin-left:25%;
+    }
+    
+    
+</style>
+
+<div class="jumbotron">
+    <div class="row">
+        <label class="form-group col-2">Class:</label>
+        <input class="form-group col-2" type="search" name="" value="" id="classinfo" />
+    </div>
+    <div class="row">
+        <label class="form-group col-2 ">Section:</label>
+        <input class="form-group col-2" type="search" name="" value="" id="sections" />
+    </div>
+    <div class="row">
+        <label class="form-group col-2 ">Roll:</label>
+        <input class="form-group col-2" type="search" name="" value="" id="roll" />
+    </div>
+    <br /><br />
+    <h6 style="text-align: center; padding-top: 5%; border-top: 2px solid blue;">Or</h6>
+    <div class="row">
+        <label class="from-group col-4">Students Name</label>
+        <select class="from-group col-4" asp-items="ViewBag.nameofstudents" id="nameinfo">
+        </select>
+    </div>
+    <br /><br />
+    <input class="btn btn-info" type="button" name="" value="Submit" id="button" />
+</div>
+<h6 style="margin-left:30%;color:darkblue;color:darkcyan;" id="message"></h6>
+<div id="main" style="display:none;">
+    <div id="tablein" class="tableformat">
+        <h2>Student's Information</h2>
+        
+
+    </div>
+    <h2 style="padding-top:100px;text-align:center;padding-bottom:50px;">Date of Presence</h2>
+    <div id="tablein2" class="tableformat2"></div>
+    </div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#classinfo").keydown(function () {
+
+                $('#nameinfo').prop('disabled', 'disabled');
+                    
+                
+            });
+
+        
+
+            
+                console.log("Multipurpose jquery");
+                //$('#nameinfo').prop('disabled', 'disabled');
+            
+            $("#button").click(function () {
+                $("#message").text("Loading Table Please Wait...");
+                let classinfo = parseInt($("#classinfo").val());
+                let roll = parseInt($("#roll").val());
+                let section = ($("#sections").val());
+                let studentname = parseInt($("#nameinfo").val());
+                console.log(classinfo);
+                console.log(typeof (classinfo));
+                console.log(roll);
+                console.log(typeof (roll));
+
+
+                //firstloop of getting student details with classinfo roll and section
+
+                if (!Number.isNaN(classinfo) && !Number.isNaN(roll)) {
+                    console.log("Class info & roll loop");
+                    console.log(classinfo, roll);
+
+
+                    var data = {
+                        classinfo: classinfo,
+                        roll: roll,
+                        section:section 
+
+                };
+                console.log(data);
+                    $.post("/Attendances/Searchbox",
+                        {
+                            classinfo: classinfo,
+                            section: section,
+                            roll: roll
+                        },
+                        function (data, status) {
+                            //console.log("Data: " + data + "\nStatus: " + status);
+
+
+                            var profileimage = '';
+                            if (data[0].students.Imagefilename == '') {
+                                var profileimage = '<img class="rounded-circle" style="width:100px;height:100px;" src="~/Images/2020/default.png" />';
+                            }
+                            else {
+                                var imageurl = '~/Images/2020/' + data[0].students.classinfo + '/' + data[0].students.imagefilename;
+                            var profileimage = '<img class="rounded-circle" style="width:100px;height:100px;" src="'+imageurl+'" />';
+                        }
+                        var tablecontent = `<table class="table table-striped col-8">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tr>`+profileimage+`
+                            
+                        </tr>
+                        <tr>
+                            <td class="col-2">Name</td>
+                            <td id="name" class="col-4 text-center"></td>
+                            <td class="col-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Class</td>
+                            <td id="class" class="col-4 text-center"></td>
+                            <td class="col-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Section</td>
+                            <td id="section" class="col-4 text-center" ></td>
+                            <td class="col-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Roll</td>
+                            <td id="rollnum" class="col-4 text-center"></td>
+                            <td class="col-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Parents Contact</td>
+                            <td id="parentscontact" class="col-4 text-center"></td>
+                            <td class="col-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Address</td>
+                            <td id="address" class="col-4 text-center"></td>
+                            <td class="col-2"></td>
+                        </tr>`
+                       
+
+                        var htmltable = tablecontent +  '</table>';
+
+
+
+                        //Here is the code for showing dummy table content of attendance show
+                    let table_content = `
+                        <table class="table table-striped ">
+                                <thead class="">
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Month</th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>8</th>
+                                        <th>9</th>
+                                        <th>10</th>
+                                        <th>11</th>
+                                        <th>12</th>
+                                        <th>13</th>
+                                        <th>14</th>
+                                        <th>15</th>
+                                        <th>16</th>
+                                        <th>17</th>
+                                        <th>18</th>
+                                        <th>19</th>
+                                        <th>20</th>
+                                        <th>21</th>
+                                        <th>22</th>
+                                        <th>23</th>
+                                        <th>24</th>
+                                        <th>25</th>
+                                        <th>26</th>
+                                        <th>27</th>
+                                        <th>28</th>
+                                        <th>29</th>
+                                        <th>30</th>
+                                        <th>31</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablebody">
+
+                                </tbody>
+
+                            </table>`;
+
+                        //code for including the attendance table in the page
+
+                        
+                        let content = ''
+                        let temporary_present_array = []
+                         let temporary_id_array=[]
+
+                    for (j = 0; j < data.length; j++) {
+                        let checkboxhtml = '';
+                        for (i = 0; i < 31; i++) {
+                            let identity = (data[j].id * 100 + i);
+                            rowoftable = '<td><input type="checkbox" class="checker" id="' + identity + '" name="' + identity +
+                                '" value=""></input>' + '</td>';
+                            checkboxhtml += rowoftable;
+                        }
+                        temporary_present_array.push((data[j]["day"]).split(","));
+                        temporary_id_array.push(data[j]["id"]);
+                        content += '<tr><td>' + data[j]["year"] + '</td><td>' + data[j]["month"] + '</td>' + checkboxhtml + '</tr>';
+                        }
+
+                       
+
+                         $("#tablein2").append(table_content);
+                         $("#tablebody").append(content);
+                        
+                       
+
+
+                        //loop for selecting desired elements and make the whole present list disabled
+                        let day_id = 0;
+                        i = 0;
+                        
+                                                  
+
+                                for (j = 0; j < temporary_present_array.length; j++) {
+                                    for (l = 0; l < temporary_present_array[j].length; l++) {
+                                        
+                                                                                
+                                        day_id = temporary_id_array[j] * 100 + parseInt(temporary_present_array[j][l]) - 1;
+                                        let day_id_string = '#' + day_id;
+                                        //console.log(day_id_string);
+                                        $(day_id_string).prop("checked", true);
+                                        //$(day_id_string).css('background-color','black');
+
+                                    }
+                                }
+
+                            
+                        
+                        
+                        $('.checker').prop('disabled', true);
+
+                                               
+
+
+
+                        
+                        //console.log(htmlcontent);
+                        $("#tablein").append(htmltable);
+                        $("#main").css("display", "block");
+                        $("#name").text(data[0].students.name);
+                        $("#class").text(data[0].students.classinfo);
+                        $("#section").text(data[0].students.section);
+                        $("#rollnum").text(data[0].students.roll);
+                        $("#parentscontact").text(data[0].students.parentscontact);
+                        $("#address").text(data[0].students.address);
+                        $("#message").css("display", "none");
+
+
+                        
+                    });
+                }
+
+
+                //second loop for finding details for 
+                if (Number.isNaN(classinfo) && Number.isNaN(roll)) {
+                    console.log("null operation $$$$$$$$$$$$$$$$$$");
+                    console.log(studentname);
+
+                    //post request
+                    var data = {
+                    classinfo: classinfo,
+                    roll: roll
+                };
+                console.log(data);
+                $.post("/Attendances/Datainfo",
+                    {
+                        userdata:studentname
+                    },
+                    function (data, status) {
+                        console.log("Data: " + data + "\nStatus: " + status);
+                         var profileimage = '';
+                        if (data[0].students.imagefilename == '') {
+                            var profileimage = '<img class="rounded-circle" style="width:100px;height:100px;" src="https://localhost:44393/Images/2020/default.png" />';
+                        }
+                        if (data[0].students.imagefilename != '') {
+                            var imageurl = 'https://localhost:44393/Images/2020/' + data[0].students.classinfo + '/' + data[0].students.imagefilename;
+                            var profileimage = '<img class="rounded-circle" style="width:100px;height:100px;" src="' + imageurl + '" />';
+                        }
+                        
+                        var htmlcontent = '';
+                        var tablecontent = `<table class="table table-striped col-8">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tr>`+ profileimage +`
+                            
+                        </tr>
+                        <tr>
+                            <td class="col-2">Name</td>
+                            <td id="name" class="col-4 text-center"></td>
+                            <td class="col-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Class</td>
+                            <td id="class" class="col-4 text-center"></td>
+                            <td class="col-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Section</td>
+                            <td id="section" class="col-4 text-center" ></td>
+                            <td class="col-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Roll</td>
+                            <td id="rollnum" class="col-4 text-center"></td>
+                            <td class="col-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Parents Contact</td>
+                            <td id="parentscontact" class="col-4 text-center"></td>
+                            <td class="col-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Address</td>
+                            <td id="address" class="col-4 text-center"></td>
+                            <td class="col-2"></td>
+                        </tr>`
+                       
+
+                        var htmltable = tablecontent +  '</table>';
+
+
+
+                        //Here is the code for showing dummy table content of attendance show
+                    let table_content = `
+                        <table class="table table-striped ">
+                                <thead class="">
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Month</th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>8</th>
+                                        <th>9</th>
+                                        <th>10</th>
+                                        <th>11</th>
+                                        <th>12</th>
+                                        <th>13</th>
+                                        <th>14</th>
+                                        <th>15</th>
+                                        <th>16</th>
+                                        <th>17</th>
+                                        <th>18</th>
+                                        <th>19</th>
+                                        <th>20</th>
+                                        <th>21</th>
+                                        <th>22</th>
+                                        <th>23</th>
+                                        <th>24</th>
+                                        <th>25</th>
+                                        <th>26</th>
+                                        <th>27</th>
+                                        <th>28</th>
+                                        <th>29</th>
+                                        <th>30</th>
+                                        <th>31</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablebody">
+
+                                </tbody>
+
+                            </table>`;
+
+                        //code for including the attendance table in the page
+
+                        
+                        let content = ''
+                        let temporary_present_array = []
+                         let temporary_id_array=[]
+
+                    for (j = 0; j < data.length; j++) {
+                        let checkboxhtml = '';
+                        for (i = 0; i < 31; i++) {
+                            let identity = (data[j].id * 100 + i);
+                            rowoftable = '<td><input type="checkbox" class="checker" id="' + identity + '" name="' + identity +
+                                '" value=""></input>' + '</td>';
+                            checkboxhtml += rowoftable;
+                        }
+                        temporary_present_array.push((data[j]["day"]).split(","));
+                        temporary_id_array.push(data[j]["id"]);
+                        content += '<tr><td>' + data[j]["year"] + '</td><td>' + data[j]["month"] + '</td>' + checkboxhtml + '</tr>';
+                        }
+
+                        
+                         $("#tablein2").append(table_content);
+                         $("#tablebody").append(content);
+                        
+                       
+
+
+                        //loop for selecting desired elements and make the whole present list disabled
+                        let day_id = 0;
+                        i = 0;
+                        
+                                                  
+
+                                for (j = 0; j < temporary_present_array.length; j++) {
+                                    for (l = 0; l < temporary_present_array[j].length; l++) {
+                                        
+                                                                                
+                                        day_id = temporary_id_array[j] * 100 + parseInt(temporary_present_array[j][l]) - 1;
+                                        let day_id_string = '#' + day_id;
+                                        //console.log(day_id_string);
+                                        $(day_id_string).prop("checked", true);
+                                        //$(day_id_string).css('background-color','black');
+
+                                    }
+                                }
+
+                            
+                        
+                        
+                        $('.checker').prop('disabled', true);
+
+
+
+    
+
+
+
+
+
+                        
+                        //console.log(htmlcontent);
+                        $("#tablein").append(htmltable);
+                        $("#main").css("display", "block");
+                        $("#name").text(data[0].students.name);
+                        $("#class").text(data[0].students.classinfo);
+                        $("#section").text(data[0].students.section);
+                        $("#rollnum").text(data[0].students.roll);
+                        $("#parentscontact").text(data[0].students.parentscontact);
+                        $("#address").text(data[0].students.address);
+                        $("#message").css("display", "none");
+
+
+                        
+                    });
+                }
+
+
+
+                
+            });
+        });
+    </script>
+}

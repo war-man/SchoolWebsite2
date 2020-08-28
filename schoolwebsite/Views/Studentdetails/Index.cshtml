@@ -1,0 +1,226 @@
+﻿
+@model IEnumerable<schoolwebsite.Models.Results>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-color: #e1d9fa;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 1000px;
+        margin: auto;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #d7f5f5;
+        line-height: 20px;
+        padding-top: 50px;
+    }
+
+    .titleheading {
+        font-size: 18px;
+        margin-left: 5%;
+        text-align: left;
+        color: #4759ff;
+        font-family: 'Varela Round', sans-serif;
+    }
+
+    .title {
+        color: #2d2e2b;
+        font-size: 18px;
+        margin-left: 5%;
+        text-align: left;
+    }
+
+    button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+    }
+
+    p {
+        text-align: left;
+        padding-left: 5%;
+        font-family: 'Barlow', sans-serif;
+    }
+
+    #header1 {
+        text-align: center;
+        width: 90vw;
+        height: 80px;
+        background-color: black;
+        box-sizing: border-box;
+        color: white;
+        margin-bottom: 50px;
+    }
+
+    .inlineflex {
+        display: flex;
+        flex-direction: row;
+    }
+
+        .inlineflex > p {
+            margin: 10px;
+            text-align: center;
+            font-size: 30px;
+        }
+</style>
+
+<div id="header1">
+    <h2 style="text-align:center; margin-bottom: 100px;">Student's Profile</h2>
+</div>
+@foreach (var item in Model)
+{
+<div style="margin-bottom:50px;" class="card">
+    <h3 style="padding-bottom:50px;">Personal Information</h3>
+    <div class="row">
+        <p class="titleheading col-3">Name:</p>
+        <h2 class="title col-4" style="color:red">@Html.DisplayFor(modelItem => item.Students.Name)</h2>
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">Class:</p>
+        <p class="title col-4">@Html.DisplayFor(modelItem => item.Students.classinfo)</p>
+    </div>
+
+    <div class="row">
+        <p class="titleheading col-3">Roll:</p>
+        <p class="title col-4">@Html.DisplayFor(modelItem => item.Students.roll)</p>
+    </div>
+
+    <div class="row">
+        <p class="titleheading col-3">Section:</p>
+        <p class="title col-4">@Html.DisplayFor(modelItem => item.Students.section)</p>
+    </div>
+
+    <div class="row">
+        <p class="titleheading col-3">Address: </p>
+        <p class="title col-6">@Html.DisplayFor(modelItem => item.Students.address)</p>
+
+    </div>
+
+    <div class="row">
+        <p class="titleheading col-3">Parent's Contact: </p>
+        <p class="title col-4">@Html.DisplayFor(modelItem => item.Students.parentscontact)</p>
+
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">User Name: </p>
+        <p class="title col-4">@Html.DisplayFor(modelItem => item.Students.username)</p>
+
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">Password: </p>
+        <p class="title col-4">@Html.DisplayFor(modelItem => item.Students.password)</p>
+
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">Attendaces: </p>
+        <p class="title col-4">@Html.DisplayFor(modelItem => item.Students.password)</p>
+
+    </div>
+
+
+    <div style="margin-top: 50px;margin-bottom: 50px;">
+
+
+
+        <h3>Result</h3>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Titles</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Exam(Term)</th>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Exam)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Year</th>
+                    <td>@Html.DisplayFor(modelItem => item.year)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Subjects</th>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject1)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject2)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject3)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject4)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject5)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject6)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject7)</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject8)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject9)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject10)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject11)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Subjects.Subject12)</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">Results</th>
+                    <td>@Html.DisplayFor(modelItem => item.Result1)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result2)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result3)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result4)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result5)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result6)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result7)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result8)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result9)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result10)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result11)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Result12)</td>
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+}

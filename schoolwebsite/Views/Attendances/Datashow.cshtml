@@ -1,0 +1,98 @@
+﻿@model IEnumerable<schoolwebsite.Models.Attendance>
+
+    @{
+        ViewData["Title"] = "Datashow";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h1>Datashow</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Students.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Day)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Month)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Students.roll)
+                </th>
+
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Students.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Day)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Month)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Students.roll)
+                </td>
+                <td>
+                    <button id="@item.id" class="btn btn-danger delete" name="@item.id">Delete</button>
+
+
+                </td>
+
+
+                <td>
+                </td>
+            </tr>
+            
+}
+        </tbody>
+    </table>
+@section  Scripts{ 
+    <script>
+        $(document).ready(function () {
+            
+            $(".delete").click(function () {
+                
+                var confirmation=confirm("Want to delete data?");
+                
+                if (confirmation) {
+                    var idfordelete = parseInt($(this).attr("name"));
+                    console.log(idfordelete);
+                    
+                    console.log(typeof (idfordelete));
+                    var url = '/Attendances/Delete/' + idfordelete;
+                    console.log(url);
+                    $.get(url, function () {
+                        console.log("deleted successfully");
+                        location.reload(true);
+
+                    });
+                    
+                }
+                    
+            
+          });
+        });
+    </script>
+}
+

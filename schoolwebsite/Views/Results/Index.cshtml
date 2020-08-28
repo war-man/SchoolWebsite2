@@ -1,0 +1,120 @@
+﻿@model IEnumerable<schoolwebsite.Models.Results>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Studentsid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subjectsid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result11)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result12)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Students.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subjectsid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result11)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result12)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

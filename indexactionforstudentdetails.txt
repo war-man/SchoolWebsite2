@@ -1,0 +1,192 @@
+public IActionResult Index()
+        {
+            var result = _context.Results.Include(m => m.Subjects).Include(m => m.Students).ToList();
+            return Json(result);
+        }
+
+
+
+
+index.cshtml
+
+
+
+@model IEnumerable<schoolwebsite.Models.Results>
+
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-color: #e1d9fa;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 800px;
+        margin: auto;
+        text-align: center;
+        font-family: 'Raleway', sans-serif;
+        background-color: #d7f5f5;
+        line-height: 20px;
+        padding-top: 50px;
+    }
+
+    .titleheading {
+        font-size: 20px;
+        margin-left: 5%;
+        text-align: left;
+        font-weight: 200;
+        color: #000529;
+    }
+
+    .title {
+        color: #2d2e2b;
+        font-size: 18px;
+        margin-left: 5%;
+        text-align: left;
+    }
+
+    button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+    }
+
+    p {
+        text-align: left;
+        padding-left: 5%;
+        font-family: 'Barlow', sans-serif;
+    }
+
+    #header {
+        text-align: center;
+        width: 90vw;
+        height: 80px;
+        background-color: black;
+        box-sizing: border-box;
+        color:white;
+        margin-bottom:50px;
+    }
+
+    .inlineflex {
+        display: flex;
+        flex-direction: row;
+    }
+
+        .inlineflex > p {
+            margin: 10px;
+            text-align: center;
+            font-size: 30px;
+        }
+</style>
+
+<div id="header">
+    <h2 style="text-align:center; margin-bottom: 100px;">Student's Profile</h2>
+</div>
+
+<div class="card">
+
+    <div class="row">
+        <p class="titleheading col-3">Name:</p>
+        <h4 style="font-weight: 200;" class="title col-4">John Doe</h4>
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">Class:</p>
+        <p class="title col-4">2</p>
+    </div>
+
+    <div class="row">
+        <p class="titleheading col-3">Roll:</p>
+        <p class="title col-4">12</p>
+    </div>
+
+    <div class="row">
+        <p class="titleheading col-3">Section:</p>
+        <p class="title col-4"> A</p>
+    </div>
+
+    <div class="row">
+        <p class="titleheading col-3">Address: </p>
+        <p class="title col-6">Road-3, Block-J,Baridhara,Dhaka</p>
+
+    </div>
+
+    <div class="row">
+        <p class="titleheading col-3">Parent's Contact: </p>
+        <p class="title col-4">01779566986</p>
+
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">User Name: </p>
+        <p class="title col-4">Baron.bd</p>
+
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">Password: </p>
+        <p class="title col-4">abecdfksflksf</p>
+
+    </div>
+
+
+    <div style="margin-top: 50px;margin-bottom: 50px;">
+
+
+
+        <h3>Result</h3>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Term</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Subjects</th>
+                    <th scope="col">Results</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>kkk</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>mmmm</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>nnnn</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

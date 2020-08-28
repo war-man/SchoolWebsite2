@@ -1,0 +1,27 @@
+﻿@model schoolwebsite.Models.UserRole
+@{
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+
+    <form asp-action="Create">
+        <div class="form-group">
+            <label asp-for="UserId" class="control-label"></label>
+            <select asp-for="UserId" asp-items="ViewBag.UserId"></select>
+            <span asp-validation-for="RoleId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RoleId" class="control-label"></label>
+            <select asp-for="RoleId" asp-items="ViewBag.RoleId"></select>
+            <span asp-validation-for="RoleId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group" style="margin-top:30px;">
+            <input type="submit" class="btn btn-secondary btn-block" value="Assign" />
+        </div>
+
+    </form>
+

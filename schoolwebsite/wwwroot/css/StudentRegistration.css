@@ -1,0 +1,257 @@
+﻿
+.container {
+    width: auto;
+}
+
+.datepicker {
+    margin-top: 250px;
+    padding: 10px 15px;
+    background: #2CBBBB;
+    display: table;
+    color: #fff;
+    border-radius: 5%;
+}
+
+label {
+    color: #aaa;
+    font: 16px Arial, Helvetica, sans-serif;
+}
+
+.labelforupload {
+    margin-top: 250px;
+    padding: 10px 15px;
+    background: #2CBBBB;
+    display: table;
+    color: #fff;
+    border-radius: 5%;
+}
+
+
+.underbordermaker {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+#fullname {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+#class {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+#roll {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+#section {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+#address {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+#contact {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+#username {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+#password {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+
+.form-style-8 input[type="file"] {
+    display: none;
+}
+
+.form-style-8 {
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 400px;
+    padding: 40px;
+    border-left: 4px solid #007aa3;
+    background: #FFFFFF;
+    margin: 100px auto;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+
+    .form-style-8 h2 {
+        text-align: center;
+        text-transform: uppercase;
+        padding-left: 100px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        color: #797979;
+        font-size: 28px;
+        font-weight: 100;
+        padding: 20px;
+        margin: -30px -30px 30px -30px;
+    }
+
+    .form-style-8 input[type="text"],
+    .form-style-8 input[type="date"],
+    .form-style-8 input[type="datetime"],
+    .form-style-8 input[type="email"],
+    .form-style-8 input[type="number"],
+    .form-style-8 input[type="search"],
+    .form-style-8 input[type="time"],
+    .form-style-8 input[type="url"],
+    .form-style-8 input[type="password"],
+    .form-style-8 textarea,
+    .form-style-8 select {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        display: block;
+        width: 100%;
+        padding: 7px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        background: transparent;
+        margin-bottom: 10px;
+        font: 16px Arial, Helvetica, sans-serif;
+        height: 45px;
+    }
+
+    .form-style-8 textarea {
+        resize: none;
+        overflow: hidden;
+    }
+
+    .form-style-8 input[type="button"],
+    .form-style-8 input[type="submit"] {
+        margin-top: 150px;
+        margin-right:10px;
+        -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+        -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+        box-shadow: inset 0px 1px 0px 0px #45D6D6;
+        background-color: #2CBBBB;
+        border: 1px solid #27A0A0;
+        display: inline-block;
+        cursor: pointer;
+        color: #FFFFFF;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 14px;
+        padding: 8px 140px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+        .form-style-8 input[type="button"]:hover,
+        .form-style-8 input[type="submit"]:hover {
+            background: linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+            background-color: #34CACA;
+        }

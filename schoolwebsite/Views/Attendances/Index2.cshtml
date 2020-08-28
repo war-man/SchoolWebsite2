@@ -1,0 +1,80 @@
+﻿
+
+@{
+    ViewData["Title"] = "Searchbox";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <div class="row">
+        <label class="form-group">Class</label>
+        <input type="search" class="form-group col-4" name="name" id="class" value="" />
+    </div>
+    <div class="row">
+        <label class="form-group">Roll</label>
+        <input type="search" class="form-group col-4" name="name" id="roll" value="" />
+    </div>
+    <input type="button" class="btn btn-dark" name" id="searchbutton" value="Search" />
+</div>
+
+
+
+<div style="margin-bottom:50px;display:none;" class="card" id="main">
+    <h3 style="padding-bottom:50px;">Personal Information</h3>
+    <div class="row">
+        <p class="titleheading col-3">Name:</p>
+        <h2 class="title col-4" style="color:red;" id="name"></h2>
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">Class:</p>
+        <p class="title col-4" id="class"></p>
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">Section:</p>
+        <p class="title col-4" id="section"></p>
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">Roll:</p>
+        <p class="title col-4" id="roll"></p>
+    </div>
+    <div class="row">
+        <p class="titleheading col-3">Parent's Contact:</p>
+        <p class="title col-4" id="parentscontact"></p>
+    </div>
+
+    <div class="row">
+        <p class="titleheading col-3">Address:</p>
+        <p class="title col-4" id="address"></p>
+    </div>
+
+
+
+
+    
+</div>
+
+@section Scripts{
+    <script>
+
+        $(document).ready(function () {
+
+            $("#searchbutton").click(function () {
+                let classinfo = $("#class").val();
+                let roll = $("#roll").val();
+                console.log(classinfo, roll);
+                //$("#main").css("display", "block");
+
+
+                $.post("/Attendances/Individual",
+                    {
+                        classinfo: classinfo,
+                        roll: roll
+                    },
+
+                    function (data, status) {
+                        console.log("Data: " + data + "\nStatus: " + status);
+                    }
+                );
+            });
+        });
+    </script>
+}

@@ -1,0 +1,36 @@
+﻿@model  schoolwebsite.Models.UserRole;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<table class="display" id="mytable" width="100%">
+    <thead class="thead-dark">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleId)
+
+            </th>
+        </tr>
+    
+    </thead>
+    <tbody>
+       
+            <tr>
+
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.User)*@
+                </td>
+            </tr>
+
+        
+
+    </tbody>
+</table>

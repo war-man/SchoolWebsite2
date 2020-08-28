@@ -1,0 +1,12 @@
+﻿
+@model IEnumerable<schoolwebsite.Models.Attendance>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="search" name="" value="" asp-route-classinfo="" />
+<label  class="control-label"></label>
+<select asp-route-id="" class="form-control" asp-action="Individualjquery" asp-items="ViewBag.individualid">
+</select>

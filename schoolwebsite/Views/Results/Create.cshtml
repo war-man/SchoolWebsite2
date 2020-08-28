@@ -1,0 +1,144 @@
+﻿@model schoolwebsite.Models.Results
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Results</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Studentsid" class="control-label"></label>
+                <select class="form-control" asp-for="Studentsid" asp-items="ViewBag.Studentsid">
+                </select>
+                <span asp-validation-for="Studentsid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subjectsid" class="control-label"></label>
+                <select class="form-control" asp-for="Subjectsid" asp-items="ViewBag.Subjectsid" id="class1">
+                </select>
+                <span asp-validation-for="Subjectsid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="year" class="control-label" ></label>
+                <input asp-for="year" class="form-control " />
+                <span asp-validation-for="year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result1" class="control-label" id="lresult1"></label>
+                <input asp-for="Result1" class="form-control " id="result1" />
+                <span asp-validation-for="Result1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result2" class="control-label" id="lresult2"></label>
+                <input asp-for="Result2" class="form-control" />
+                <span asp-validation-for="Result2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result3" class="control-label" id="lresult3"></label>
+                <input asp-for="Result3" class="form-control" />
+                <span asp-validation-for="Result3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result4" class="control-label" id="lresult4"></label>
+                <input asp-for="Result4" class="form-control" />
+                <span asp-validation-for="Result4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result5" class="control-label" id="lresult5"></label>
+                <input asp-for="Result5" class="form-control" />
+                <span asp-validation-for="Result5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result6" class="control-label" id="lresult6"></label>
+                <input asp-for="Result6" class="form-control" />
+                <span asp-validation-for="Result6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result7" class="control-label" id="lresult7"></label>
+                <input asp-for="Result7" class="form-control" />
+                <span asp-validation-for="Result7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result8" class="control-label" id="lresult8"></label>
+                <input asp-for="Result8" class="form-control" />
+                <span asp-validation-for="Result8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result9" class="control-label" id="lresult9"></label>
+                <input asp-for="Result9" class="form-control" />
+                <span asp-validation-for="Result9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result10" class="control-label" id="lresult10"></label>
+                <input asp-for="Result10" class="form-control" />
+                <span asp-validation-for="Result10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result11" class="control-label" id="lresult11"></label>
+                <input asp-for="Result11" class="form-control" />
+                <span asp-validation-for="Result11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result12" class="control-label" id="lresult12"></label>
+                <input asp-for="Result12" class="form-control" />
+                <span asp-validation-for="Result12" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#class1").blur(function () {
+                var datas = $("#class1").val();
+                console.log(datas);
+
+                $.post("@Url.Action("Datainfo", "Results")",
+                {
+                    userdata: datas
+                     
+                },
+                    function (data) {
+                        console.log(data);
+                        console.log(data[0].subject3);
+                        $("#lresult1").html(data[0].subject1);
+                        $("#lresult2").html(data[0].subject2);
+                        $("#lresult3").html(data[0].subject3);
+                        $("#lresult4").html(data[0].subject4);
+                        $("#lresult5").html(data[0].subject5);
+                        $("#lresult6").html(data[0].subject6);
+                        $("#lresult7").html(data[0].subject7);
+                        $("#lresult8").html(data[0].subject8);
+                        $("#lresult9").html(data[0].subject9);
+                        $("#lresult10").html(data[0].subject10);
+                        $("#lresult11").html(data[0].subject11);
+                        $("#lresult12").html(data[0].subject12);
+                
+                });
+
+
+
+
+
+            });
+        });
+
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

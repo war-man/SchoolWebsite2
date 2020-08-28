@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+
+
+    .header {
+        color: darkslateblue;
+        text-decoration: underline;
+        width: 40vw;
+        margin-left: 30%;
+        margin-top: 10%;
+        text-align: center;
+        margin-right: 10%;
+        margin-bottom: 10%;
+    }
+
+    #submit {
+        margin-top: 10px;
+        padding-left: 10px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-left: 1%;
+    }
+
+    #details {
+        margin-top: 50px;
+    }
+
+    #message2 {
+       
+        color: mediumspringgreen;
+        text-align: center;
+        margin-top: 10%;
+        margin-left: 25%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: none;
+        
+    }
+
+    .ui-datepicker-calendar {
+        display: none;
+    }
+    .subheader{
+        padding-top:50px;
+        padding-bottom:50px;
+        margin-left:5%;
+        color:darkslategrey;
+    }
+        
+    
+
+</style>
+
+
+<h1 class="header">Attendance List</h1>
+
+<h5 class="subheader">First select the month and year from the dropdown list and then select all the absent dates of students from the following table.</h5>
+<button class="btn btn-dark form-group" id="getdata" style="margin-left:45%;">Display all</button>
+<div class="col-10" id="top" style="display: none">
+
+    <h5 style="color:darkslategrey">Date: <input type="text" id="datepicker" class="ml-auto" style="margin-bottom:10%;"></h5>
+    
+
+    
+
+
+    <h4 id="message" style="color:darkcyan;text-align:center"></h4>
+    <h4 id="message2"></h4>
+    <table style="margin-top:10%;" class="table table-striped col-8">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
+                <th>15</th>
+                <th>16</th>
+                <th>17</th>
+                <th>18</th>
+                <th>19</th>
+                <th>20</th>
+                <th>21</th>
+                <th>22</th>
+                <th>23</th>
+                <th>24</th>
+                <th>25</th>
+                <th>26</th>
+                <th>27</th>
+                <th>28</th>
+                <th>29</th>
+                <th>30</th>
+                <th>31</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+        </tbody>
+    </table>
+</div>
+<button style="display:block;margin-top:100px;margin-bottom:50px;" class="btn btn-info btn-lg rounded" id="submit">Submit</button>
+<a class="btn btn-outline-success btn-lg" href="https://localhost:44393/Attendances/Datashow" id="details" style="display:none;margin-left:30%;margin-right:30%;">See details</a>
+
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/js/attendance.js"></script>
+
+
+}

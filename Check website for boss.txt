@@ -1,0 +1,26 @@
+[
+{"id":3,
+"studentsid":2,
+"year":0,
+"students":{"id":2,"dateCreated":"2020-05-07T13:33:16.4540849","name":"Baron Chowdhury","classinfo":2,
+		"roll":3,"section":"B","address":"Road-3, Block-J,Baridhara,Dhaka","parentscontact":"01779566986","username":"Baron.bd",
+"password":"2233","results":null},
+"subjectsid":2,
+"subjects":{"id":2,"class":"2","exam":"first term","subject1":"Bangla","subject2":"English","subject3":"Math",
+		"subject4":"Science","subject5":null,"subject6":null,"subject7":null,"subject8":null,"subject9":null,"subject10":null,"subject11":null,"subject12":null},
+"result1":"40","result2":"40","result3":"40","result4":"40","result5":null,"result6":null,"result7":null,"result8":null,"result9":null,
+		"result10":null,"result11":null,"result12":null},
+
+
+{"id":4,
+"studentsid":2,
+"year":0,
+"students":{"id":2,"dateCreated":"2020-05-07T13:33:16.4540849","name":"Baron Chowdhury","classinfo":2,
+		"roll":3,"section":"B","address":"Road-3, Block-J,Baridhara,Dhaka","parentscontact":"01779566986","username":"Baron.bd",
+"password":"2233","results":null},
+"subjectsid":2,
+"subjects":{"id":2,"class":"2","exam":"first term","subject1":"Bangla","subject2":"English","subject3":"Math",
+		"subject4":"Science","subject5":null,"subject6":null,"subject7":null,"subject8":null,"subject9":null,"subject10":null,"subject11":null,"subject12":null},
+"result1":"50","result2":"50","result3":"50","result4":"50","result5":null,"result6":null,"result7":null,"result8":null,"result9":null,
+"result10":null,"result11":null,"result12":null}
+]

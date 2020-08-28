@@ -1,0 +1,91 @@
+﻿@model schoolwebsite.Models.Students
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
+<link href="https://code.jquery.com/ui/1.10.4/themes/Flick/jquery-ui.css" rel="stylesheet">
+<link href="~/css/StudentRegistration.css" rel="stylesheet" />
+<div class="container">
+    <div class="form-style-8">
+
+        <form asp-action="Create" id="registration" enctype="multipart/form-data">
+            <h2> Registration Form</h2>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label asp-for="Name">Full Name</label>
+                <input asp-for="Name" type="text" id="fullname" minlength="3" onkeydown="bordercolorchange1(this)" onclick="borderColorChangeOnMouseLeave1(this)" required />
+                <span id="" class="errormessage"></span>
+            </div>
+
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label asp-for="classinfo">Class</label>
+                <input asp-for="classinfo" type="text" id="class" onkeydown="bordercolorchange2(this)" onclick="borderColorChangeOnMouseLeave2(this)" required />
+                <span id="" class="errormessage"></span>
+            </div>
+
+
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label asp-for="roll"></label>
+                <input asp-for="roll" type="text" id="roll" onkeydown="bordercolorchange3(this)" onclick="borderColorChangeOnMouseLeave3(this)" required />
+                <span id="" class="errormessage"></span>
+            </div>
+
+
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label asp-for="section"></label>
+                <input asp-for="section" type="text" id="section" onkeydown="bordercolorchange4(this)" onclick="borderColorChangeOnMouseLeave4(this)" required />
+                <span id="" class="errormessage"></span>
+            </div>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label asp-for="address">Address</label>
+                <input asp-for="address" type="text" id="address" onkeydown="bordercolorchange5(this)" onclick="borderColorChangeOnMouseLeave5(this)" required />
+                <span id="" class="errormessage"></span>
+            </div>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label asp-for="parentscontact"></label>
+                <input asp-for="parentscontact" type="text" id="contact" onkeydown="bordercolorchange6(this)" onclick="borderColorChangeOnMouseLeave6(this)" required />
+                <span id="" class="errormessage"></span>
+            </div>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label asp-for="username"></label>
+                <input asp-for="username" type="text" id="username" onkeydown="bordercolorchange7(this)" onclick="borderColorChangeOnMouseLeave7(this)" required />
+                <span id="" class="errormessage"></span>
+            </div>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label asp-for="password"></label>
+                <input asp-for="password" type="password" id="password" onkeydown="bordercolorchange8(this)" onclick="borderColorChangeOnMouseLeave8(this)" required />
+                <span id="" class="errormessage"></span>
+            </div>
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label asp-for="dateofbirth">Date of Birth</label>
+                <input asp-for="dateofbirth" type="text"  id="datepicker" required/>
+                <span id="" class="errormessage"></span>
+            </div>
+
+            <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                <label class="labelforupload" asp-for="Image"><i class="fas fa-upload"></i> Upload</label>
+                <input asp-for="Image" type="file" accept="image/*" />
+            </div>
+
+                <input id="submit" type="submit" value="Register" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-info" asp-action="Index">Back to List</a>
+</div>
+
+
+@section scripts{
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+
+    <script src="~/js/StudentRegistration.js"></script>
+
+
+}

@@ -1,0 +1,90 @@
+﻿
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - schoolwebsite</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-fixed navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <div class="d-inline-flex">
+                    <img src="~/img/logo.png" asp-append-version="true" width="40" height="40" class="d-inline-block align-top" alt=""><h2>Albert International School</h2>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <div class="navbar-nav ml-auto">
+
+                    @if (User.Identity.IsAuthenticated)
+
+                    {
+                        if (User.IsInRole("Admin") || User.IsInRole("Teacher") || User.IsInRole("Headmaster"))
+                        {
+                            <div class="dropdown show mr-lg-2" style="margin-right:3%;">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    More
+                                </a>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-action="Create" asp-controller="Results">Results</a>
+                                    <a class="dropdown-item" asp-action="Create" asp-controller="Subjects">Subjects & Classinfo</a>
+                                    <a class="dropdown-item" asp-action="Index" asp-controller="Studentdetails">Students profile with result</a>
+                                    <a class="dropdown-item" asp-action="Index" asp-controller="Attendances">Monthly Attendance Input</a>
+                                    <a class="dropdown-item" asp-action="Datashow" asp-controller="Attendances">Attendance list</a>
+                                    <a class="dropdown-item" asp-action="Index3" asp-controller="Attendances">Short information</a>
+                                    <a class="dropdown-item" asp-action="Index" asp-controller="Students">Students Information</a>
+                                </div>
+                            </div>
+                        }
+                    }
+                    
+                    <button type="button" class="btn btn-outline-info mr-lg-2 border-0 rounded" onclick="location.href='@Url.Action("Index","Home")'">Home</button>
+                    <button type="button" class="btn btn-outline-info mr-lg-2 border-0 rounded" onclick="location.href='@Url.Action("Create","Students")'">Student's Registration</button>
+                    <button type="button" class="btn btn-outline-info mr-lg-2 border-0 rounded" onclick="location.href='@Url.Action("Create","Teachers")'">Teacher's Registration</button>
+                    <partial name="_LoginPartial" />
+                </div>
+                <span class="navbar-text">
+
+                </span>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style="background-color:#8adbdb;">
+        <div class="container">
+            &copy; 2020 - schoolwebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

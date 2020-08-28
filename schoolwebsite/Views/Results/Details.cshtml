@@ -1,0 +1,103 @@
+﻿@model schoolwebsite.Models.Results
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Results</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Studentsid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Studentsid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subjectsid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subjectsid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result4)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result5)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result6)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result6)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result7)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result7)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result8)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result8)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result9)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result9)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result10)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result10)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result11)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result11)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Result12)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Result12)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

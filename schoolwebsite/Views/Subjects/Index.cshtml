@@ -1,0 +1,116 @@
+﻿@model IEnumerable<schoolwebsite.Models.Subjects>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject11)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject12)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject11)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject12)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
